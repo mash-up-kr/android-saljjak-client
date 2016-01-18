@@ -2,6 +2,8 @@ package com.ewhappcenter.saljjak;
 
 import android.app.Application;
 
+import com.facebook.drawee.backends.pipeline.Fresco;
+
 /**
  * Created by makeus on 2016. 1. 14..
  */
@@ -15,5 +17,11 @@ public class SalJjakApplication extends Application {
     @Override public void onCreate() {
         super.onCreate();
         instance = this;
+
+        initFresco();
+    }
+
+    private void initFresco() {
+        Fresco.initialize(this);
     }
 }
