@@ -23,7 +23,16 @@ dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     testCompile 'junit:junit:4.12'
     compile 'com.android.support:appcompat-v7:23.1.1'
+
+    // Annotation Processing
     compile 'com.jakewharton:butterknife:7.0.1'
+
+    // Rest
     compile 'com.squareup.retrofit2:retrofit:2.0.0-beta3'
+
+    // ImageLoader
     compile 'com.facebook.fresco:fresco:0.8.1'
+
+    // Animation
+    compile 'com.facebook.rebound:rebound:0.3.8'
 }
