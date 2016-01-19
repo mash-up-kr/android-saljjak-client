@@ -29,7 +29,7 @@ public class FontHelper {
         typeBold = Typeface.createFromAsset(context.getAssets(), "SHANB.OTF");
     }
 
-    private void setType(TextView targetTextView, FontType type) {
+    public void setType(TextView targetTextView, FontType type) {
         switch (type) {
             case BOLD:
                 targetTextView.setTypeface(typeBold);

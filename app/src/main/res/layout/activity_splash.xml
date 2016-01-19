@@ -6,13 +6,28 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".SplashActivity">
 
-    <com.facebook.drawee.view.SimpleDraweeView
-        xmlns:fresco="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/splash_dv_logo"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true"
-        fresco:actualImageScaleType="focusCrop"
-        fresco:placeholderImage="@drawable/vector_refrigerator"/>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_centerInParent="true">
+        <com.facebook.drawee.view.SimpleDraweeView
+            xmlns:fresco="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/splash_dv_logo"
+            android:layout_width="170dp"
+            android:layout_height="170dp"
+            fresco:actualImageScaleType="focusCrop"
+            fresco:placeholderImage="@drawable/vector_refrigerator"/>
+
+        <TextView
+            android:id="@+id/splash_tv_logo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_gravity="center_horizontal"
+            android:text="@string/app_name"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            android:textColor="@android:color/black"/>
+    </LinearLayout>
 </RelativeLayout>
