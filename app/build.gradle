@@ -35,4 +35,8 @@ dependencies {
 
     // Animation
     compile 'com.facebook.rebound:rebound:0.3.8'
+
+    // Parse
+    compile 'com.parse.bolts:bolts-android:1.+'
+    compile 'com.parse:parse-android:1.+'
 }
