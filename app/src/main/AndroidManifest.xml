@@ -11,7 +11,8 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme" >
+        android:theme="@style/Theme.AppCompat.NoActionBar"
+        >
 
         <meta-data
             android:name="com.parse.APPLICATION_ID"
@@ -20,13 +21,31 @@
             android:name="com.parse.CLIENT_KEY"
             android:value="WQ2sO96JQfsnHlRgU8uRyEfWYKAYS8uhfqQtdM1D" />
 
-        <activity android:name=".SplashActivity" >
+        <activity
+            android:name=".SplashActivity"
+            android:hardwareAccelerated="false">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity android:name=".login.KakaoLoginActivity"/>
+        <activity android:name=".login.KakaoSessionCheck"/>
+
+        <activity
+            android:name=".signup.SaljjakSignupActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="@string/kakao_scheme" android:host="@string/kakaotalk_host" />
+            </intent-filter>
+        </activity>
+
+
+
+        <meta-data android:name="com.kakao.sdk.AppKey" android:value="@string/kakao_app_key"/>
     </application>
 
 </manifest>
