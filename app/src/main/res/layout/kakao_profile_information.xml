@@ -4,37 +4,16 @@
     xmlns:fresco="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_weight="1"
-        android:gravity="center">
+    android:layout_height="match_parent"
+    android:gravity="center">
 
         <com.facebook.drawee.view.SimpleDraweeView
             android:id="@+id/user_profile_image"
-            android:layout_width="120dp"
-            android:layout_height="120dp"
+            android:layout_width="110dp"
+            android:layout_height="110dp"
             fresco:placeholderImage="@drawable/default_profile"
             fresco:roundAsCircle="true"
             fresco:roundingBorderWidth="4dp"
-            fresco:roundingBorderColor="@color/orange"
-            android:layout_marginTop="100dp"/>
-
-
-        <TextView
-            android:text="사용자 정보"
-            android:id="@+id/user_profile_text"
-            android:textColor="#ffffff"
-            android:textSize="20sp"
-            android:layout_marginTop="15dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="30dp" />
-
-    </LinearLayout>
-
+            fresco:roundingBorderColor="@color/orange" />
 
 </LinearLayout>

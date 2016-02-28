@@ -2,9 +2,13 @@ package com.ewhappcenter.saljjak.login;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 
+import com.afollestad.materialdialogs.DialogAction;
+import com.afollestad.materialdialogs.MaterialDialog;
+import com.ewhappcenter.saljjak.R;
 import com.ewhappcenter.saljjak.signup.SaljjakSignupActivity;
 import com.kakao.auth.ApiResponseCallback;
 import com.kakao.auth.ErrorCode;
@@ -83,7 +87,7 @@ public class KakaoSessionCheck extends AppCompatActivity {
 
             @Override
             public void onSuccess(UserProfile userProfile) {
-                Log.v("로그인 성공", "상태검토 후 페이지 이동");
+                Log.v("로그인 성공", "사용자 상태검토 후 페이지 이동");
                 redirectSignupActivity();
             }
 
@@ -100,10 +104,19 @@ public class KakaoSessionCheck extends AppCompatActivity {
     }
 
     private void redirectLoginActivity() {
-        final Intent intent = new Intent(getApplicationContext(), KakaoLoginActivity.class);
-        intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
-        startActivity(intent);
-        finish();
+        new MaterialDialog.Builder(this)
+                .content("로그인에 실패하였습니다.")
+                .positiveText("확인")
+                .positiveColorRes(R.color.blue)
+                .onPositive(new MaterialDialog.SingleButtonCallback() {
+                    @Override
+                    public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
+                        final Intent intent = new Intent(getApplicationContext(), KakaoLoginActivity.class);
+                        intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+                        startActivity(intent);
+                        finish();
+                    }
+                })
+                .show();
     }
-
 }

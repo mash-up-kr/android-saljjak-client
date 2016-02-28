@@ -3,22 +3,25 @@ package com.ewhappcenter.saljjak.signup;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.view.View;
-import android.widget.Button;
 import android.widget.TextView;
 
+import com.afollestad.materialdialogs.DialogAction;
+import com.afollestad.materialdialogs.MaterialDialog;
 import com.ewhappcenter.saljjak.KakaoProfileInformation;
 import com.ewhappcenter.saljjak.R;
+import com.ewhappcenter.saljjak.login.KakaoLoginActivity;
 import com.kakao.kakaotalk.KakaoTalkService;
 import com.kakao.kakaotalk.callback.TalkResponseCallback;
 import com.kakao.kakaotalk.response.KakaoTalkProfile;
 import com.kakao.network.ErrorResult;
+import com.kakao.usermgmt.UserManagement;
+import com.kakao.usermgmt.callback.LogoutResponseCallback;
 import com.kakao.usermgmt.response.model.UserProfile;
 
-/**
- * Created by JungMin on 2016-02-27.
- */
 public class SaljjakSignupActivity extends Activity {
+
     private UserProfile userProfile;
     private KakaoProfileInformation profileInformation;
 
@@ -26,13 +29,18 @@ public class SaljjakSignupActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup);
-
         initializeProfileView();
     }
 
     private void initializeProfileView() {
         profileInformation = (KakaoProfileInformation) findViewById(R.id.com_kakao_profileinformation);
         ((TextView)findViewById(R.id.text_title)).setText("회원가입");
+        findViewById(R.id.btn_back).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                backbutton();
+            }
+        });
 
         // 로그인 하면서 caching되어 있는 profile를 그린다.
         userProfile = UserProfile.loadFromCache();
@@ -47,6 +55,38 @@ public class SaljjakSignupActivity extends Activity {
             }
         });
 
+    }
+
+    private void backbutton(){
+        new MaterialDialog.Builder(this)
+                .title("회원가입 취소")
+                .content("홈화면으로 돌아가시겠습니까?")
+                .positiveText("확인")
+                .positiveColorRes(R.color.blue)
+                .onPositive(new MaterialDialog.SingleButtonCallback() {
+                    @Override
+                    public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
+
+                        UserManagement.requestLogout(new LogoutResponseCallback() {
+                            @Override
+                            public void onCompleteLogout() {
+                                final Intent intent = new Intent(SaljjakSignupActivity.this, KakaoLoginActivity.class);
+                                intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+                                startActivity(intent);
+                                finish();
+                            }
+                        });
+                    }
+                })
+                .negativeText("최소")
+                .negativeColorRes(R.color.blue)
+                .onNegative(new MaterialDialog.SingleButtonCallback() {
+                    @Override
+                    public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
+                        dialog.dismiss();
+                    }
+                })
+                .show();
     }
 
     // profile view에서 talk profile을 update 한다.

@@ -5,16 +5,12 @@ import android.graphics.Canvas;
 import android.graphics.Movie;
 import android.os.SystemClock;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.Display;
 import android.view.View;
 import android.view.WindowManager;
 
 import java.io.InputStream;
 
-/**
- * Created by JungMin on 2016-02-27.
- */
 public class GifView extends View {
 
     public InputStream gifInputStream;

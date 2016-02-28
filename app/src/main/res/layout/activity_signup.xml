@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/saljjak_main_background">
 
@@ -10,9 +12,36 @@
         android:layout_height="60dp"
         layout="@layout/view_actionbar_title" />
 
-    <com.ewhappcenter.saljjak.KakaoProfileInformation
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/com_kakao_profileinformation"/>
+        android:orientation="vertical"
+        android:paddingLeft="60dp"
+        android:paddingRight="60dp"
+        android:layout_marginTop="100dp">
+
+        <com.ewhappcenter.saljjak.KakaoProfileInformation
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/com_kakao_profileinformation"/>
+
+        <EditText
+            android:id="@+id/edit_signup_username"
+            style="@style/Saljjak_EditText"
+            android:layout_marginTop="40dp" />
+
+        <TextView
+            android:id="@+id/text_username_alert"
+            style="@style/Saljjak_TextView_name_alert"
+            android:text="이름은 필수로 입력해야 합니다!"
+            android:layout_marginTop="5dp"/>
+
+        <Button
+            android:id="@+id/btn_user_signup"
+            style="@style/Saljjak_Button_orange"
+            android:text="가입하기"
+            android:layout_marginTop="25dp"/>
+
+    </LinearLayout>
 
 </LinearLayout>
