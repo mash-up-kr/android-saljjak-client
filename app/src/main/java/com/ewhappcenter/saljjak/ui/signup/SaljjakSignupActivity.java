@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -23,13 +22,21 @@ import com.kakao.usermgmt.response.model.UserProfile;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 public class SaljjakSignupActivity extends Activity {
 
     private UserProfile userProfile;
 
+    @Bind(R.id.actionbar_tv_title) TextView tvActionbarTitle;
+
     @Bind(R.id.edit_signup_username) EditText etInputUsername;
     @Bind(R.id.com_kakao_profileinformation) KakaoProfileInformation profileInformation;
+
+    @OnClick(R.id.actionbar_btn_back)
+    void onActionbarBackButtonClicked() {
+        onBackPressed();
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,14 +48,7 @@ public class SaljjakSignupActivity extends Activity {
     }
 
     private void initializeProfileView() {
-        profileInformation = (KakaoProfileInformation) findViewById(R.id.com_kakao_profileinformation);
-        ((TextView)findViewById(R.id.text_title)).setText("회원가입");
-        findViewById(R.id.btn_back).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                onBackPressed();
-            }
-        });
+        tvActionbarTitle.setText("회원가입");
 
         // 로그인 하면서 caching되어 있는 profile를 그린다.
         userProfile = UserProfile.loadFromCache();
@@ -87,7 +87,7 @@ public class SaljjakSignupActivity extends Activity {
                         });
                     }
                 })
-                .negativeText("최소")
+                .negativeText("취소")
                 .negativeColorRes(R.color.blue)
                 .onNegative(new MaterialDialog.SingleButtonCallback() {
                     @Override

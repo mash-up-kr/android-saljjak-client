@@ -10,7 +10,7 @@
         android:background="@color/skyblue">
 
         <Button
-            android:id="@+id/btn_back"
+            android:id="@+id/actionbar_btn_back"
             android:background="@drawable/btn_back"
             android:layout_width="48dp"
             android:layout_height="48dp"
@@ -18,14 +18,14 @@
             android:layout_marginLeft="16dp"/>
 
         <TextView
-            android:id="@+id/text_title"
+            android:id="@+id/actionbar_tv_title"
             android:textSize="20sp"
             android:text="제목 입니다"
             android:layout_centerVertical="true"
             android:textColor="@color/white"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-           android:layout_toRightOf="@id/btn_back"/>
+           android:layout_toRightOf="@id/actionbar_btn_back"/>
     </RelativeLayout>
 
 </LinearLayout>
