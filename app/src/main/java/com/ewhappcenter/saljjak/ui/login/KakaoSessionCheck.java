@@ -9,7 +9,7 @@ import android.util.Log;
 import com.afollestad.materialdialogs.DialogAction;
 import com.afollestad.materialdialogs.MaterialDialog;
 import com.ewhappcenter.saljjak.R;
-import com.ewhappcenter.saljjak.signup.SaljjakSignupActivity;
+import com.ewhappcenter.saljjak.ui.signup.SaljjakSignupActivity;
 import com.kakao.auth.ApiResponseCallback;
 import com.kakao.auth.ErrorCode;
 import com.kakao.network.ErrorResult;
