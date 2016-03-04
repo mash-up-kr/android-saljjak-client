@@ -1,30 +1,17 @@
 package com.ewhappcenter.saljjak;
 
-import android.app.Activity;
 import android.app.Application;
 import android.content.Context;
-import android.content.Intent;
 import android.net.Uri;
-import android.os.Bundle;
 import android.util.AttributeSet;
 import android.view.View;
-import android.widget.Button;
 import android.widget.FrameLayout;
-import android.widget.TextView;
 
 import com.facebook.drawee.view.SimpleDraweeView;
-import com.kakao.kakaotalk.KakaoTalkService;
-import com.kakao.kakaotalk.callback.TalkResponseCallback;
-import com.kakao.kakaotalk.response.KakaoTalkProfile;
-import com.kakao.network.ErrorResult;
 import com.kakao.usermgmt.UserManagement;
-import com.kakao.usermgmt.callback.LogoutResponseCallback;
 import com.kakao.usermgmt.callback.MeResponseCallback;
 import com.kakao.usermgmt.response.model.UserProfile;
 
-/**
- * Created by JungMin on 2016-02-27.
- */
 public class KakaoProfileInformation extends FrameLayout {
 
     private MeResponseCallback meResponseCallback;
