@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import com.afollestad.materialdialogs.DialogAction;
@@ -20,15 +21,21 @@ import com.kakao.usermgmt.UserManagement;
 import com.kakao.usermgmt.callback.LogoutResponseCallback;
 import com.kakao.usermgmt.response.model.UserProfile;
 
+import butterknife.Bind;
+import butterknife.ButterKnife;
+
 public class SaljjakSignupActivity extends Activity {
 
     private UserProfile userProfile;
     private KakaoProfileInformation profileInformation;
 
+    @Bind(R.id.edit_signup_username) EditText input_signup_username;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup);
+        ButterKnife.bind(this);
         initializeProfileView();
     }
 
@@ -100,8 +107,7 @@ public class SaljjakSignupActivity extends Activity {
                 profileInformation.setProfileURL(profileImageURL);
 
             final String nickName = talkProfile.getNickName();
-            if (nickName != null)
-                profileInformation.setNickname(nickName);
+            input_signup_username.setText(nickName);
 
         }
     }
