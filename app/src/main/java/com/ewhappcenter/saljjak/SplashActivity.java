@@ -2,6 +2,7 @@ package com.ewhappcenter.saljjak;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 
 import com.ewhappcenter.saljjak.login.KakaoLoginActivity;
@@ -12,13 +13,12 @@ public class SplashActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
 
-        findViewById(R.id.splash).postDelayed(new Runnable() {
-            @Override
-            public void run() {
+        new Handler(getMainLooper()).postDelayed(new Runnable() {
+            @Override public void run() {
                 startActivity(new Intent(SplashActivity.this, KakaoLoginActivity.class));
                 finish();
             }
-        }, 2950);
+        }, 1000);
 
     }
 }
