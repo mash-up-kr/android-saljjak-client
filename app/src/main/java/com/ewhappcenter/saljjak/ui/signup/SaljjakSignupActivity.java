@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.util.Log;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -12,12 +13,10 @@ import com.afollestad.materialdialogs.MaterialDialog;
 import com.ewhappcenter.saljjak.R;
 import com.ewhappcenter.saljjak.common.KakaoProfileInformation;
 import com.ewhappcenter.saljjak.ui.login.KakaoLoginActivity;
-import com.kakao.kakaotalk.KakaoTalkService;
-import com.kakao.kakaotalk.callback.TalkResponseCallback;
-import com.kakao.kakaotalk.response.KakaoTalkProfile;
 import com.kakao.network.ErrorResult;
 import com.kakao.usermgmt.UserManagement;
 import com.kakao.usermgmt.callback.LogoutResponseCallback;
+import com.kakao.usermgmt.callback.MeResponseCallback;
 import com.kakao.usermgmt.response.model.UserProfile;
 
 import butterknife.Bind;
@@ -56,13 +55,22 @@ public class SaljjakSignupActivity extends Activity {
             profileInformation.setUserProfile(userProfile);
         }
 
-        KakaoTalkService.requestProfile(new KakaoTalkResponseCallback<KakaoTalkProfile>() {
+        UserManagement.requestMe(new MeResponseCallback() {
             @Override
-            public void onSuccess(KakaoTalkProfile result) {
+            public void onSessionClosed(ErrorResult errorResult) {
+                Log.e("TAG", "Session closed");
+            }
+
+            @Override
+            public void onNotSignedUp() {
+                Log.e("TAG", "No signedUp");
+            }
+
+            @Override
+            public void onSuccess(UserProfile result) {
                 applyTalkProfileToView(result);
             }
         });
-
     }
 
     @Override
@@ -99,51 +107,18 @@ public class SaljjakSignupActivity extends Activity {
     }
 
     // profile view에서 talk profile을 update 한다.
-    private void applyTalkProfileToView(final KakaoTalkProfile talkProfile) {
+    private void applyTalkProfileToView(final UserProfile userProfile) {
         if (profileInformation != null) {
             if (userProfile != null) {
                 profileInformation.setUserProfile(userProfile);
             }
-            final String profileImageURL = talkProfile.getProfileImageUrl();
+            final String profileImageURL = userProfile.getProfileImagePath();
             if (profileImageURL != null)
                 profileInformation.setProfileURL(profileImageURL);
 
-            final String nickName = talkProfile.getNickName();
+            final String nickName = userProfile.getNickname();
             etInputUsername.setText(nickName);
 
-        }
-    }
-
-    public abstract class KakaoTalkResponseCallback<T> extends TalkResponseCallback<T> {
-
-        @Override
-        public void onNotKakaoTalkUser() {
-            // KakaoToast.makeToast(self, "not a KakaoTalk user", Toast.LENGTH_SHORT).show();
-        }
-
-        @Override
-        public void onFailure(ErrorResult errorResult) {
-            // KakaoToast.makeToast(self, "failure : " + errorResult, Toast.LENGTH_LONG).show();
-        }
-
-        @Override
-        public void onSessionClosed(ErrorResult errorResult) {
-
-        }
-
-        @Override
-        public void onNotSignedUp() {
-
-        }
-
-        @Override
-        public void onDidStart() {
-            // showWaitingDialog();
-        }
-
-        @Override
-        public void onDidEnd() {
-            //cancelWaitingDialog();
         }
     }
 }
