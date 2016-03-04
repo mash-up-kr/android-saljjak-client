@@ -10,8 +10,8 @@ import android.widget.TextView;
 
 import com.afollestad.materialdialogs.DialogAction;
 import com.afollestad.materialdialogs.MaterialDialog;
-import com.ewhappcenter.saljjak.common.KakaoProfileInformation;
 import com.ewhappcenter.saljjak.R;
+import com.ewhappcenter.saljjak.common.KakaoProfileInformation;
 import com.ewhappcenter.saljjak.ui.login.KakaoLoginActivity;
 import com.kakao.kakaotalk.KakaoTalkService;
 import com.kakao.kakaotalk.callback.TalkResponseCallback;
@@ -45,7 +45,7 @@ public class SaljjakSignupActivity extends Activity {
         findViewById(R.id.btn_back).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                backbutton();
+                onBackPressed();
             }
         });
 
@@ -54,7 +54,7 @@ public class SaljjakSignupActivity extends Activity {
         if (userProfile != null) {
             profileInformation.setUserProfile(userProfile);
         }
-        
+
         KakaoTalkService.requestProfile(new KakaoTalkResponseCallback<KakaoTalkProfile>() {
             @Override
             public void onSuccess(KakaoTalkProfile result) {
@@ -64,7 +64,8 @@ public class SaljjakSignupActivity extends Activity {
 
     }
 
-    private void backbutton(){
+    @Override
+    public void onBackPressed() {
         new MaterialDialog.Builder(this)
                 .title("회원가입 취소")
                 .content("홈화면으로 돌아가시겠습니까?")
