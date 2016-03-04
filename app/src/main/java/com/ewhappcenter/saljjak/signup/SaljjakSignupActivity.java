@@ -144,6 +144,4 @@ public class SaljjakSignupActivity extends Activity {
             //cancelWaitingDialog();
         }
     }
-
-
 }

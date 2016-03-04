@@ -2,13 +2,9 @@ package com.ewhappcenter.saljjak.login;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
-import android.widget.Toast;
 
-import com.afollestad.materialdialogs.DialogAction;
-import com.afollestad.materialdialogs.MaterialDialog;
 import com.ewhappcenter.saljjak.R;
 import com.kakao.auth.ISessionCallback;
 import com.kakao.auth.Session;
@@ -18,6 +14,7 @@ import com.kakao.util.helper.log.Logger;
 
 public class KakaoLoginActivity extends AppCompatActivity {
     private SessionCallback callback;
+
     /**
      * 로그인 페이지
      * 세션을 오픈한 후 action을 override해서 사용한다.
