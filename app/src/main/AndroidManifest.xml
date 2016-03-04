@@ -21,7 +21,7 @@
             android:value="WQ2sO96JQfsnHlRgU8uRyEfWYKAYS8uhfqQtdM1D" />
 
         <activity
-            android:name=".SplashActivity"
+            android:name=".ui.splash.SplashActivity"
             android:hardwareAccelerated="false">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -29,11 +29,11 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".login.KakaoLoginActivity"/>
-        <activity android:name=".login.KakaoSessionCheck"/>
+        <activity android:name=".ui.login.KakaoLoginActivity"/>
+        <activity android:name=".ui.login.KakaoSessionCheck"/>
 
         <activity
-            android:name=".signup.SaljjakSignupActivity">
+            android:name=".ui.signup.SaljjakSignupActivity">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW"/>
                 <category android:name="android.intent.category.DEFAULT"/>

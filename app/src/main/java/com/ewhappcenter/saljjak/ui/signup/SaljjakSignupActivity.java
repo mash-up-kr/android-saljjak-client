@@ -1,4 +1,4 @@
-package com.ewhappcenter.saljjak.signup;
+package com.ewhappcenter.saljjak.ui.signup;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -10,9 +10,9 @@ import android.widget.TextView;
 
 import com.afollestad.materialdialogs.DialogAction;
 import com.afollestad.materialdialogs.MaterialDialog;
-import com.ewhappcenter.saljjak.KakaoProfileInformation;
+import com.ewhappcenter.saljjak.common.KakaoProfileInformation;
 import com.ewhappcenter.saljjak.R;
-import com.ewhappcenter.saljjak.login.KakaoLoginActivity;
+import com.ewhappcenter.saljjak.ui.login.KakaoLoginActivity;
 import com.kakao.kakaotalk.KakaoTalkService;
 import com.kakao.kakaotalk.callback.TalkResponseCallback;
 import com.kakao.kakaotalk.response.KakaoTalkProfile;
@@ -54,7 +54,7 @@ public class SaljjakSignupActivity extends Activity {
         if (userProfile != null) {
             profileInformation.setUserProfile(userProfile);
         }
-
+        
         KakaoTalkService.requestProfile(new KakaoTalkResponseCallback<KakaoTalkProfile>() {
             @Override
             public void onSuccess(KakaoTalkProfile result) {

@@ -1,4 +1,4 @@
-package com.ewhappcenter.saljjak.anim;
+package com.ewhappcenter.saljjak.common.anim;
 
 import com.facebook.rebound.Spring;
 import com.facebook.rebound.SpringSystem;

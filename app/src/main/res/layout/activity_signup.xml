@@ -20,7 +20,7 @@
         android:paddingRight="60dp"
         android:layout_marginTop="100dp">
 
-        <com.ewhappcenter.saljjak.KakaoProfileInformation
+        <com.ewhappcenter.saljjak.common.KakaoProfileInformation
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/com_kakao_profileinformation"/>

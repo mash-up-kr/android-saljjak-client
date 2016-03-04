@@ -1,4 +1,4 @@
-package com.ewhappcenter.saljjak;
+package com.ewhappcenter.saljjak.ui.widget;
 
 import android.content.Context;
 import android.graphics.Canvas;
@@ -8,6 +8,8 @@ import android.util.AttributeSet;
 import android.view.Display;
 import android.view.View;
 import android.view.WindowManager;
+
+import com.ewhappcenter.saljjak.R;
 
 import java.io.InputStream;
 

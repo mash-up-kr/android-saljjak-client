@@ -1,4 +1,4 @@
-package com.ewhappcenter.saljjak.login;
+package com.ewhappcenter.saljjak.ui.login;
 
 import android.content.Intent;
 import android.os.Bundle;

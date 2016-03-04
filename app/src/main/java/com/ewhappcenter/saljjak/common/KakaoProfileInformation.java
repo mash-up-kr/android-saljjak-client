@@ -1,4 +1,4 @@
-package com.ewhappcenter.saljjak;
+package com.ewhappcenter.saljjak.common;
 
 import android.app.Application;
 import android.content.Context;
@@ -7,6 +7,8 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.FrameLayout;
 
+import com.ewhappcenter.saljjak.R;
+import com.ewhappcenter.saljjak.SalJjakApplication;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.kakao.usermgmt.UserManagement;
 import com.kakao.usermgmt.callback.MeResponseCallback;
