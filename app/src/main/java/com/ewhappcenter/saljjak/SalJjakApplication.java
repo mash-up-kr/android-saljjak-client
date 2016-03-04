@@ -14,9 +14,6 @@ import com.kakao.auth.KakaoSDK;
 import com.kakao.util.helper.log.Logger;
 import com.parse.Parse;
 
-/**
- * Created by makeus on 2016. 1. 14..
- */
 public class SalJjakApplication extends Application {
 
     private static SalJjakApplication instance;
