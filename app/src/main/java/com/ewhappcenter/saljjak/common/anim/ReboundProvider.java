@@ -3,9 +3,6 @@ package com.ewhappcenter.saljjak.common.anim;
 import com.facebook.rebound.Spring;
 import com.facebook.rebound.SpringSystem;
 
-/**
- * Created by makeus on 2016. 1. 19..
- */
 public class ReboundProvider {
     private static ReboundProvider instance;
 
